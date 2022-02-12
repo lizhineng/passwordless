@@ -1,5 +1,5 @@
 {
-    "name": "lizhineng/skeleton-php",
+    "name": "lizhineng/passwordless",
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -16,12 +16,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Zhineng\\Skeleton\\": "src"
+            "Zhineng\\Passwordless\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Zhineng\\Skeleton\\Tests\\": "tests"
+            "Zhineng\\Passwordless\\Tests\\": "tests"
         }
     }
 }

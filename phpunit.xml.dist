@@ -5,7 +5,7 @@
     colors="true"
 >
     <testsuites>
-        <testsuite name="Package Test Case">
+        <testsuite name="Passwordless Test Case">
             <directory>tests</directory>
         </testsuite>
     </testsuites>
