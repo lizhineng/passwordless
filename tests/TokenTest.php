@@ -3,6 +3,8 @@
 namespace Zhineng\Passwordless\Tests;
 
 use PHPUnit\Framework\TestCase;
+use Zhineng\Passphrase\ArrayRepository;
+use Zhineng\Passphrase\Passphrase;
 use Zhineng\Passwordless\Contracts\IssueToken;
 use Zhineng\Passwordless\Tokens\PassphraseToken;
 use Zhineng\Passwordless\Tokens\PinToken;
@@ -15,15 +17,22 @@ class TokenTest extends TestCase
      */
     public function test_token_generation(IssueToken $token)
     {
-        $this->assertNotNull($token->issue());
+        [$token1, $token2] = [$token->issue(), $token->issue()];
+
+        $this->assertNotNull($token1);
+        $this->assertNotSame($token1, $token2);
     }
 
     public function provides_token_issuers()
     {
         return [
             'string token' => [new StringToken],
+
             'pin token' => [new PinToken],
-            'passphrase token' => [new PassphraseToken],
+
+            'passphrase token' => [
+                new PassphraseToken(new Passphrase(new ArrayRepository)),
+            ],
         ];
     }
 }
